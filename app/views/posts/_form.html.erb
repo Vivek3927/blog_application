@@ -1,0 +1,82 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label :title, style: "display: block" %>
+          <%= form.text_field :title, class: 'form-control', placeholder: "Enter title", required: true %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label :author, style: "display: block" %>
+          <%= form.text_field :author, class: 'form-control', placeholder: "Enter author", required: true %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3 mb-3">
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= form.label :creation_date, style: "display: block" %>
+          <%= form.date_field :creation_date, class: 'form-control', min: Date.today %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= form.label :published_date, style: "display: block" %>
+          <%= form.date_field :published_date, class: 'form-control', min: Date.today %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= form.label :status, style: "display: block" %>
+          <%= form.select :status, Post.statuses.keys, class: 'form-select form-select-lg mb-3' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :image, style: "display: block" %>
+        <%= form.file_field :image, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :video, style: "display: block" %>
+        <%= form.file_field :video, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group mb-3 mt-3">
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_area :content, class: 'form-control', placeholder: "Write something about post.", rows: "5", required: true %>
+  </div>
+
+  <div class="col-md-12 mt-3">
+    <div class="row">
+      <div class="col-md-10">
+        <%= form.submit class: "btn btn-primary" %>
+      </div>
+      <div class="col-md-2">
+        <%= link_to "Back", root_path, class: "btn btn-outline-dark" %>
+      </div>
+    </div>
+  </div>
+<% end %>

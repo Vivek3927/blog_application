@@ -1,0 +1,31 @@
+<div id="<%= dom_id post %>">
+  <h5 class="card-title">
+    <strong>Title: </strong>
+    <%= post.title %>
+  </h5>
+  <hr>
+  <p>
+    <strong>Status:</strong>
+    <%= post.status %>
+  </p>
+
+  <p>
+    <strong>Creation date:</strong>
+    <%= post.creation_date.strftime("%d/%m/%Y") %>
+  </p>
+
+  <p>
+    <strong>Published date:</strong>
+    <%= post.published_date.strftime("%d/%m/%Y") %>
+  </p>
+
+  <p>
+    <strong>Author:</strong>
+    <%= post.author %>
+  </p>
+
+  <p class="card-text">
+    <strong>Content: </strong>
+    <%= post.content %>
+  </p>
+</div>

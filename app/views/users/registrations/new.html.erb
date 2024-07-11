@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <div class="card shadow">
+      <div class="card-body">
+        <h2 class="card-title text-center">Sign up</h2>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "users/shared/error_messages", resource: resource %>
+
+          <div class="form-group">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", required: true %>
+          </div>
+
+          <div class="form-group mt-3">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control", required: true %>
+          </div>
+
+          <div class="form-group mt-3">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", required: true %>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-md-9">
+              <%= f.submit "Sign up", class: "btn btn-primary" %>
+            </div>
+            <div class="col-md-3">
+              <%- if controller_name != 'sessions' %>
+                <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-outline-secondary' %><br />
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

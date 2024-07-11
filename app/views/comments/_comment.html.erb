@@ -1,0 +1,24 @@
+<% if post.comments.present? %>
+  <% post.comments.each do |comment| %>
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">
+          <strong>Name:</strong>
+          <%= comment.name %>
+        </h6>
+        <div class="card-text">
+          <strong>Comment:</strong>
+          <%= comment.text %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="row">
+    <div class="card border-0">
+      <div class="card-body text-center">
+        <h6 class="card-title text-muted">No comments</h6>
+      </div>
+    </div>
+  </div>  
+<% end %>  
