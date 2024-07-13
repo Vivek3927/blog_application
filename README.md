@@ -1,24 +1,42 @@
-# README
+##### 1. Prerequisites
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The setups steps expect following tools installed on the system.
 
-Things you may want to cover:
+- Github
+- Ruby [3.3.1](https://github.com/Vivek3927/blog_application.git)
+- Rails [7.1.3](https://github.com/Vivek3927/blog_application.git)
 
-* Ruby version
+##### 2. Check out the repository
 
-* System dependencies
+```bash
+git clone https://github.com/Vivek3927/blog_application.git
+cd blog_application
+bundle install
+```
 
-* Configuration
+##### 3. Create database.yml file
 
-* Database creation
+Copy the sample database.yml file and edit the database configuration as required.
 
-* Database initialization
+```bash
+cp config/database.yml.sample config/database.yml
+```
 
-* How to run the test suite
+##### 4. Create and setup the database
 
-* Services (job queues, cache servers, search engines, etc.)
+Run the following commands to create and setup the database.
 
-* Deployment instructions
+```ruby
+rails db:create
+rails db:migrate
+```
 
-* ...
+##### 5. Start the Rails server
+
+You can start the rails server using the command given below.
+
+```ruby
+rails s
+```
+
+And now you can visit the site with the URL http://localhost:3000
