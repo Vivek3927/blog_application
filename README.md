@@ -20,10 +20,10 @@ rails css:install:bootstrap
 ./bin/importmap pin @rails/ujs
 ./bin/importmap pin bootstrap
 #Modify in config/importmap.rb
-##Remove :
+#Remove :
 pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@5.3.3/dist/js/bootstrap.esm.js"
 pin "@popperjs/core", to: "https://ga.jspm.io/npm:@popperjs/core@2.11.8/lib/index.js"
-##Add :
+#Add :
 pin "bootstrap", to: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 ```
 
